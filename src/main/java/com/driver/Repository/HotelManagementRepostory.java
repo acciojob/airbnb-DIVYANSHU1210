@@ -25,7 +25,12 @@ public class HotelManagementRepostory {
 
 
     public String addHotel(Hotel hotel) {
-        if(hotels.containsKey(hotel.getHotelName())){
+        //You need to add an hotel to the database
+        //incase the hotelName is null or the hotel Object is null return an empty a FAILURE
+        //Incase somebody is trying to add the duplicate hotelName return FAILURE
+        //in all other cases return SUCCESS after successfully adding the hotel to the hotelDb.
+
+        if(hotel == null || hotel.getHotelName() == null || hotels.containsKey(hotel.getHotelName())){
             return "FAILURE";
         }
         hotels.put(hotel.getHotelName(), hotel);
