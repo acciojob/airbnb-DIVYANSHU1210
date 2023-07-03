@@ -49,6 +49,9 @@ public class HotelManagementRepostory {
 
 
     public String getHotelWithMostFacilities() {
+        if(hotelWithMostFacilities.getFacilities().isEmpty()){
+            return null;
+        }
         return hotelWithMostFacilities.getHotelName();
     }
 
