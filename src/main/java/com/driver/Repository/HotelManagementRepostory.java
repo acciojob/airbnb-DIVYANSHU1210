@@ -73,7 +73,7 @@ public class HotelManagementRepostory {
         booking.setAmountToBePaid(amount);
 
 //        add user and his booking to usersbooking database
-        int aadharNo = booking.getBookingAadharCard()
+        int aadharNo = booking.getBookingAadharCard();
         if(usersBooking.containsKey(aadharNo)){
              usersBooking.get(aadharNo).add(booking);
         }
