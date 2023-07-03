@@ -7,10 +7,7 @@ import com.driver.model.Hotel;
 import com.driver.model.User;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 @Repository
 public class HotelManagementRepostory {
@@ -74,6 +71,18 @@ public class HotelManagementRepostory {
         hotel.setAvailableRooms(roomsLeft);
         booking.setBookingId(UUID.randomUUID().toString());
         booking.setAmountToBePaid(amount);
+
+//        add user and his booking to usersbooking database
+        int aadharNo = booking.getBookingAadharCard()
+        if(usersBooking.containsKey(aadharNo)){
+             usersBooking.get(aadharNo).add(booking);
+        }
+        else{
+            List<Booking> newBookingsList = new ArrayList<>();
+            newBookingsList.add(booking);
+            usersBooking.put(aadharNo, newBookingsList);
+        }
+
 
         bookings.put(booking.getBookingId(), booking);
         return amount;
