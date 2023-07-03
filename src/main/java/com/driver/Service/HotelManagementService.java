@@ -13,10 +13,10 @@ import java.util.List;
 @Service
 public class HotelManagementService {
 
-    @Autowired
-    HotelManagementRepostory hotelManagementRepostory;
+//    @Autowired
+//    HotelManagementRepostory hotelManagementRepostory;
 
-
+    HotelManagementRepostory hotelManagementRepostory = new HotelManagementRepostory();
     public String addHotel(Hotel hotel) {
         return hotelManagementRepostory.addHotel(hotel);
     }
